@@ -16,11 +16,37 @@ class CustomConvertTest {
         CustomConvert cCv = new CustomConvert();
         Assertions.assertEquals("двести двадцать три", cCv.toString(223));
     }
+    @Test
+    void thirdIntTestToString() {
+        CustomConvert cCv = new CustomConvert();
+        Assertions.assertEquals("сто миллионов", cCv.toString(100_000_000));
+    }
+    @Test
+    void fourthIntTestToString() {
+        CustomConvert cCv = new CustomConvert();
+        Assertions.assertEquals("сто двадцать", cCv.toString(120));
+    }
 
     @Test
     void firstDoubleTestToString() {
         CustomConvert cCv = new CustomConvert();
         Assertions.assertEquals("двести двадцать три целых пятнадцать сотых", cCv.toString(223.1_599_999));
+    }
+
+    @Test
+    void secondDoubleTestToString() {
+        CustomConvert cCv = new CustomConvert();
+        Assertions.assertEquals("одна целая двенадцать сотых", cCv.toString(1.123_142));
+    }
+    @Test
+    void thirdDoubleTestToString() {
+        CustomConvert cCv = new CustomConvert();
+        Assertions.assertEquals("тринадцать целых одна сотая", cCv.toString(13.01));
+    }
+    @Test
+    void fourthDoubleTestToString() {
+        CustomConvert cCv = new CustomConvert();
+        Assertions.assertEquals("тринадцать целых четырнадцать сотых", cCv.toString(13.14));
     }
 
     @Test
@@ -48,6 +74,11 @@ class CustomConvertTest {
     void secondTestToHoursMinuteSecondMillisecond() {
         CustomConvert cCv = new CustomConvert();
         Assertions.assertEquals("2 часа 9 минут 49 секунд 1 миллисекунда", cCv.toHoursMinuteSecondMillisecond(7789001, false));
+    }
+    @Test
+    void thirdTestToHoursMinuteSecondMillisecond() {
+        CustomConvert cCv = new CustomConvert();
+        Assertions.assertEquals("12 часов 17 минут 15 секунд 30 миллисекунд", cCv.toHoursMinuteSecondMillisecond(44235030, false));
     }
 
 }

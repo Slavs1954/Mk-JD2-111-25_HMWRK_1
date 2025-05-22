@@ -114,7 +114,7 @@ public class CustomConvert {
         if (n >= 11 && n <= 19) {
             return thirdForm;
         }
-        int lastDigit = (int) n % 10;
+        int lastDigit = n % 10;
         switch (lastDigit) {
             case 1:
                 return firstForm;
@@ -137,7 +137,7 @@ public class CustomConvert {
         StringBuilder retStringBuilder = new StringBuilder();
 
         if (integer % 10 == 1) {
-            retStringBuilder.append(toString(integer))
+            retStringBuilder.append("одна")
                     .append(" ")
                     .append("целая")
                     .append(" ");
@@ -149,10 +149,18 @@ public class CustomConvert {
                     .append(" ");
         }
 
-        retStringBuilder.append(threeNumToString(decimal, false))
-                .append(" ")
-                .append(decline(decimal, "сотая", "сотых", "сотых"))
-                .append(" ");
+        if (decimal % 10 == 1) {
+            retStringBuilder.append(threeNumToString(decimal, true))
+                    .append(" ")
+                    .append(decline(decimal, "сотая", "сотых", "сотых"))
+                    .append(" ");
+        }
+        else {
+            retStringBuilder.append(threeNumToString(decimal, false))
+                    .append(" ")
+                    .append(decline(decimal, "сотая", "сотых", "сотых"))
+                    .append(" ");
+        }
 
         return retStringBuilder.toString().trim();
 
